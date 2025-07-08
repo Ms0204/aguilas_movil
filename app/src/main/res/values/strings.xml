@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Loginapp</string>
+    <string name="navigation_drawer_open">Abrir menú</string>
+    <string name="navigation_drawer_close">Cerrar menú</string>
+    <string name="hello_blank_fragment"> </string>
+
+    <!-- Strings para MainActivity -->
+    <string name="hint_usuario">Usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_login">Iniciar Sesión</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="login_success">Inicio de sesión exitoso</string>
+    <string name="login_empty_fields">Por favor completa todos los campos</string>
+    <string name="login_invalid">Usuario o contraseña incorrectos</string>
+
+    <!-- Strings para HomeFragment -->
+    <string name="home_welcome">Bienvenido a Maky System</string>
+
+    <!-- Strings para CreateProductFragment -->
+    <string name="hint_nombre_producto">Nombre del producto</string>
+    <string name="hint_descripcion_producto">Descripción</string>
+    <string name="label_estado_producto">Estado del producto</string>
+    <string name="btn_guardar_producto">Guardar producto</string>
+    <string-array name="estados_producto">
+        <item>Disponible</item>
+        <item>En préstamo</item>
+        <item>En mantenimiento</item>
+    </string-array>
+
+    <!-- Strings para CrearUsuarioFragment -->
+    <string name="hint_nombre_usuario">Nombre del usuario</string>
+    <string name="hint_email_usuario">Email</string>
+    <string name="label_tipo_usuario">Tipo de usuario</string>
+    <string name="btn_guardar_usuario">Guardar usuario</string>
+    <string-array name="tipos_usuario">
+        <item>Estudiante</item>
+        <item>Profesor</item>
+        <item>Administrativo</item>
+    </string-array>
+
+    <!-- Strings para CrearRolFragment -->
+    <string name="hint_nombre_rol">Nombre del rol</string>
+    <string name="hint_descripcion_rol">Descripción</string>
+    <string name="label_permisos_rol">Permisos</string>
+    <string name="btn_guardar_rol">Guardar rol</string>
+    <string-array name="tipos_permisos">
+        <item>Administrador</item>
+        <item>Usuario estándar</item>
+        <item>Solo lectura</item>
+    </string-array>
+
+    <!-- Strings para CrearPrestamoFragment -->
+    <string name="hint_producto_prestamo">Producto</string>
+    <string name="hint_usuario_prestamo">Usuario</string>
+    <string name="label_estado_prestamo">Estado del préstamo</string>
+    <string name="btn_guardar_prestamo">Guardar préstamo</string>
+    <string-array name="estados_prestamo">
+        <item>Activo</item>
+        <item>Pendiente</item>
+        <item>Finalizado</item>
+    </string-array>
+
+    <!-- Strings para CrearDevolucionFragment -->
+    <string name="hint_usuario_devolucion">Usuario</string>
+    <string name="hint_producto_devolucion">Producto</string>
+    <string name="label_condicion_devolucion">Condición del producto</string>
+    <string name="btn_guardar_devolucion">Guardar devolución</string>
+    <string-array name="condiciones_devolucion">
+        <item>Bueno</item>
+        <item>Regular</item>
+        <item>Dañado</item>
+    </string-array>
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <!-- Fragmento de inicio -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.loginapp.ui.fragments.HomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Crear Usuario -->
+    <fragment
+        android:id="@+id/createUserFragment"
+        android:name="com.example.loginapp.ui.fragments.CreateUserFragment"
+        android:label="Crear Usuario"
+        tools:layout="@layout/fragment_create_user" />
+
+    <!-- Crear Producto -->
+    <fragment
+        android:id="@+id/createProductFragment"
+        android:name="com.example.loginapp.ui.fragments.CreateProductFragment"
+        android:label="Crear Producto"
+        tools:layout="@layout/fragment_create_product" />
+
+    <!-- Ver Productos -->
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.example.loginapp.ui.fragments.ProductListFragment"
+        android:label="Lista de Productos"
+        tools:layout="@layout/fragment_product_list" />
+
+    <!-- Crear Rol -->
+    <fragment
+        android:id="@+id/createRoleFragment"
+        android:name="com.example.loginapp.ui.fragments.CreateRoleFragment"
+        android:label="Crear Rol"
+        tools:layout="@layout/fragment_create_role" />
+
+    <!-- Crear Préstamo -->
+    <fragment
+        android:id="@+id/createLoanFragment"
+        android:name="com.example.loginapp.ui.fragments.CreateLoanFragment"
+        android:label="Crear Préstamo"
+        tools:layout="@layout/fragment_create_loan" />
+
+    <!-- Crear Devolución -->
+    <fragment
+        android:id="@+id/createReturnFragment"
+        android:name="com.example.loginapp.ui.fragments.CreateReturnFragment"
+        android:label="Crear Devolución"
+        tools:layout="@layout/fragment_create_return" />
+</navigation>

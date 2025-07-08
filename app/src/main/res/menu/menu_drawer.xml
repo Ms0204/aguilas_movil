@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@android:drawable/ic_menu_info_details" />
+
+    <item
+        android:id="@+id/nav_crear_usuario"
+        android:title="Crear Usuario"
+        android:icon="@android:drawable/ic_menu_add" />
+
+    <item
+        android:id="@+id/nav_crear"
+        android:title="Crear Producto"
+        android:icon="@android:drawable/ic_menu_add" />
+
+    <item
+        android:id="@+id/nav_crear_rol"
+        android:title="Crear Rol"
+        android:icon="@android:drawable/ic_menu_manage" />
+
+    <item
+        android:id="@+id/nav_crear_prestamo"
+        android:title="Crear Préstamo"
+        android:icon="@android:drawable/ic_menu_upload" />
+
+    <item
+        android:id="@+id/nav_crear_devolucion"
+        android:title="Crear Devolución"
+        android:icon="@android:drawable/ic_menu_revert" />
+
+    <item
+        android:id="@+id/nav_cerrar"
+        android:title="Cerrar Sesión"
+        android:icon="@android:drawable/ic_lock_power_off" />
+
+</menu>
