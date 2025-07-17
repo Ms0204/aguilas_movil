@@ -1,4 +1,4 @@
-package com.example.loginapp.Entity
+package com.example.loginapp.entity
 
 import android.content.Context
 import androidx.room.Database

@@ -1,4 +1,4 @@
-package com.example.loginapp.Entity
+package com.example.loginapp.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,4 +1,4 @@
-package com.example.loginapp.ui.fragments
+package com.example.loginapp.entity.ui.fragments
 
 
 import android.os.Bundle

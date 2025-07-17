@@ -1,4 +1,4 @@
-package com.example.loginapp.Entity
+package com.example.loginapp.entity
 
 import androidx.room.Dao
 import androidx.room.Delete

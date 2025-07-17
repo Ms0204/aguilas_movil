@@ -1,4 +1,4 @@
-package com.example.loginapp.ui.fragments
+package com.example.loginapp.entity.ui.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.loginapp.Entity.AppDatabase
-import com.example.loginapp.Entity.Product
+import com.example.loginapp.entity.AppDatabase
+import com.example.loginapp.entity.Product
 import com.example.loginapp.R
 import com.example.loginapp.adapters.ProductAdapter
 import kotlinx.coroutines.launch

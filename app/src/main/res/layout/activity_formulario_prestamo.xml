@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 🏷️ Título dinámico -->
+        <TextView
+            android:id="@+id/titleFormularioPrestamo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 🔢 Código de préstamo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputCodigoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Código del préstamo"
+            app:layout_constraintTop_toBottomOf="@id/titleFormularioPrestamo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editCodigoPrestamo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@android:color/darker_gray"
+                android:textSize="18sp"
+                android:padding="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 🙍 Usuario -->
+        <TextView
+            android:id="@+id/labelUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario receptor"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/inputCodigoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp" />
+
+        <Spinner
+            android:id="@+id/spinnerUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/labelUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 📦 Recurso -->
+        <TextView
+            android:id="@+id/labelRecurso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del recurso"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerUsuario"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinnerRecurso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/labelRecurso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 📅 Fecha de préstamo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputFechaPrestamoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Fecha del préstamo"
+            app:layout_constraintTop_toBottomOf="@id/spinnerRecurso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editFechaPrestamo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="date"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:hint="" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 📅 Fecha devolución -->
+        <LinearLayout
+            android:id="@+id/grupoFechaDevolucion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/inputFechaPrestamoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputFechaDevolucionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fecha de devolución">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editFechaDevolucion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:textSize="20sp"
+                    android:padding="16dp"
+                    android:hint="" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- 🔄 Estado -->
+        <TextView
+            android:id="@+id/labelEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/grupoFechaDevolucion"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinnerEstado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/labelEstado"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 💾 Botón guardar -->
+        <Button
+            android:id="@+id/btnGuardarPrestamo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar préstamo"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:minHeight="56dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerEstado"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

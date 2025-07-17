@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:padding="12dp">
+
+    <!-- 🔙 Botón volver -->
+    <ImageButton
+        android:id="@+id/btnVolver"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_revert"
+        android:contentDescription="Volver"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:tint="@android:color/darker_gray" />
+
+    <!-- 🧾 Título centrado -->
+    <TextView
+        android:id="@+id/tituloRoles"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="👥 Listado de Roles"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btnVolver"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp" />
+
+    <!-- 📋 Lista de roles -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRoles"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/tituloRoles"
+        app:layout_constraintBottom_toTopOf="@id/fabAgregarRol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ➕ Botón flotante mejor posicionado -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAgregarRol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="Agregar rol"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:tint="@android:color/white"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

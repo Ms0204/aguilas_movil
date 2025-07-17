@@ -2,69 +2,70 @@ package com.example.loginapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.example.loginapp.Entity.AppDatabase
-import com.example.loginapp.utils.PasswordUtils
-import kotlinx.coroutines.launch
+import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var db: AppDatabase
+    private lateinit var emailInput: TextInputEditText
+    private lateinit var passwordInput: TextInputEditText
+    private lateinit var loginButton: Button
+    private lateinit var forgotPasswordText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        db = AppDatabase.getDatabase(applicationContext)
-
-        val usernameEditText = findViewById<EditText>(R.id.usernameEditText)
-        val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
-        val loginButton = findViewById<Button>(R.id.loginButton)
-        val registerButton = findViewById<Button>(R.id.registerButton)
-        val forgotPasswordTextView = findViewById<TextView>(R.id.forgotPasswordTextView)
+        emailInput = findViewById(R.id.emailInput)
+        passwordInput = findViewById(R.id.passwordInput)
+        loginButton = findViewById(R.id.loginButton)
+        forgotPasswordText = findViewById(R.id.forgotPasswordText)
 
         loginButton.setOnClickListener {
-            val input = usernameEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
+            val email = emailInput.text.toString().trim().lowercase()
+            val password = passwordInput.text.toString().trim()
 
-            if (input.isEmpty() || password.isEmpty()) {
+            if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            lifecycleScope.launch {
-                try {
-                    val user = db.userDao().getUserByUsernameOrEmail(input)
+            val request = LoginRequest(email, password)
+            RetrofitClient.instance.login(request).enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    if (response.isSuccessful && response.body()?.success == true) {
+                        val usuario = response.body()?.usuario
 
-                    if (user != null && PasswordUtils.verifyPassword(password, user.passwordHash)) {
-                        Toast.makeText(this@MainActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+                        val prefs = getSharedPreferences("usuario_sesion", MODE_PRIVATE)
+                        prefs.edit().apply {
+                            putString("USERNAME", "${usuario?.nombre} ${usuario?.apellido}")
+                            putString("EMAIL", usuario?.email ?: "")
+                            putString("ROL", usuario?.rol ?: "")
+                            putBoolean("ACTIVO", usuario?.activo ?: false)
+                            apply()
+                        }
 
-                        val intent = Intent(this@MainActivity, HomeActivity::class.java)
-                        intent.putExtra("USERNAME", user.username)
-                        intent.putExtra("EMAIL", user.email)
-                        startActivity(intent)
+                        Toast.makeText(this@MainActivity, "Bienvenido ${usuario?.nombre}", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@MainActivity, BienvenidaActivity::class.java))
                         finish()
                     } else {
-                        Toast.makeText(this@MainActivity, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
                     }
-                } catch (e: Exception) {
-                    Log.e("MainActivityLogin", "Error durante el inicio de sesión", e)
-                    Toast.makeText(this@MainActivity, "Error al intentar iniciar sesión", Toast.LENGTH_SHORT).show()
                 }
-            }
+
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    Toast.makeText(this@MainActivity, "Error de conexión: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
 
-        registerButton.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
-
-        forgotPasswordTextView.setOnClickListener {
+        forgotPasswordText.setOnClickListener {
             startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }

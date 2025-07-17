@@ -10,8 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.loginapp.Entity.AppDatabase
-import com.example.loginapp.Entity.User
+import com.example.loginapp.entity.AppDatabase
+import com.example.loginapp.entity.User
 import com.example.loginapp.utils.PasswordUtils
 import kotlinx.coroutines.launch
 

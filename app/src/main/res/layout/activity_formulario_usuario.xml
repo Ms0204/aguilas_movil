@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 🏷️ Título vacío (se asigna desde Kotlin según modo) -->
+        <TextView
+            android:id="@+id/titleEditarUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Campos idénticos para crear/editar -->
+        <!-- 👤 Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputNombreLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            app:layout_constraintTop_toBottomOf="@id/titleEditarUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editNombreUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:fontFamily="sans-serif-medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 👤 Apellido -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputApellidoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Apellido"
+            app:layout_constraintTop_toBottomOf="@id/inputNombreLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editApellidoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:fontFamily="sans-serif-medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 📧 Email -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputEmailLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            app:layout_constraintTop_toBottomOf="@id/inputApellidoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editEmailUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:fontFamily="sans-serif-medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 📞 Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTelefonoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono"
+            app:layout_constraintTop_toBottomOf="@id/inputEmailLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTelefonoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:fontFamily="sans-serif-medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 🔑 Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputPasswordLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            app:endIconMode="password_toggle"
+            app:helperText="Opcional en edición"
+            app:layout_constraintTop_toBottomOf="@id/inputTelefonoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPasswordUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:paddingEnd="48dp"
+                android:fontFamily="sans-serif-medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 🎚️ Rol -->
+        <TextView
+            android:id="@+id/labelRolUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rol"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            app:layout_constraintTop_toBottomOf="@id/inputPasswordLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/spinnerRolUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/labelRolUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp" />
+
+        <!-- 🔄 Estado -->
+        <TextView
+            android:id="@+id/labelActivoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            app:layout_constraintTop_toBottomOf="@id/spinnerRolUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/spinnerActivoUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/labelActivoUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp" />
+
+        <!-- 💾 Botón guardar -->
+        <Button
+            android:id="@+id/btnGuardarUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar usuario"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            app:layout_constraintTop_toBottomOf="@id/spinnerActivoUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:minHeight="56dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

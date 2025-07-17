@@ -1,4 +1,4 @@
-package com.example.loginapp.ui.fragments
+package com.example.loginapp.entity.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -10,8 +10,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.loginapp.R
-import com.example.loginapp.Entity.AppDatabase
-import com.example.loginapp.Entity.Product
+import com.example.loginapp.entity.AppDatabase
+import com.example.loginapp.entity.Product
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 

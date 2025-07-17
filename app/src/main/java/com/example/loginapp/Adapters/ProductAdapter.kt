@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.loginapp.Entity.Product
+import com.example.loginapp.entity.Product
 import com.example.loginapp.R
 
 class ProductAdapter(
